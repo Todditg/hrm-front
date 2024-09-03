@@ -2,8 +2,8 @@ import { ReactElement, useContext, useState } from "react";
 import { StoreContext } from "../../../main.tsx";
 import { observer } from "mobx-react-lite";
 import { Button, Input } from "@quark-uilib/components";
-import {useNavigate} from "react-router-dom";
-import {LoginFormContainer} from "./style.ts";
+import { useNavigate } from "react-router-dom";
+import { LoginFormContainer } from "./style.ts";
 
 const LoginForm = observer((): ReactElement => {
   {
@@ -13,10 +13,10 @@ const LoginForm = observer((): ReactElement => {
 
     const navigate = useNavigate();
 
-      console.log(store.isAuth, "User updated successfully")
+    console.log(store.isAuth, "User updated successfully");
     const handleLogin = (): void => {
-        store.login(email, password);
-        navigate("/userPage")
+      store.login(email, password);
+      navigate("/userPage");
     };
 
     return (

@@ -6,9 +6,9 @@ import { createContext } from "react";
 import { CommonStore } from "./shared/store.ts";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { CSSGlobalStyle } from "./globalStyle.ts";
-import { UserPage } from "./components/UserComponents/UserPage.tsx";
-import AuthForm from "./components/UserComponents/AuthForm.tsx";
-import LoginForm from "./components/UserComponents/LoginForm.tsx";
+import { UserPage } from "./components/UserComponents/UserPage";
+import AuthForm from "./components/UserComponents/Authform";
+import LoginForm from "./components/UserComponents/Loginform";
 
 interface State {
   store: CommonStore;

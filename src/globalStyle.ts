@@ -40,6 +40,7 @@ export const CSSGlobalStyle = createGlobalStyle`
     height: 100%;
     overscroll-behavior-x: none;
     overflow: hidden;
+    background-color: ${({theme}) => theme.colors.backgroundPrimaryMain} ;
   }
 
   #root {
@@ -170,7 +171,7 @@ export const CSSGlobalStyle = createGlobalStyle`
   video {
     margin: 0;
     padding: 0;
-    border: 0;
+    border: 0;  
   }
 
   /* Корректная толщина шрифта для Chrome, Edge, Safari*/
