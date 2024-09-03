@@ -1,8 +1,9 @@
 import { ReactElement, useContext, useState } from "react";
-import { StoreContext } from "../../main.tsx";
+import { StoreContext } from "../../../main.tsx";
 import { observer } from "mobx-react-lite";
 import { Button, Input } from "@quark-uilib/components";
 import {useNavigate} from "react-router-dom";
+import {LoginFormContainer} from "./style.ts";
 
 const LoginForm = observer((): ReactElement => {
   {
@@ -19,13 +20,7 @@ const LoginForm = observer((): ReactElement => {
     };
 
     return (
-      <div
-        style={{
-          display: "flex",
-          gap: "16px",
-          flexDirection: "column",
-          width: "100%"
-        }}>
+      <LoginFormContainer>
         <Input
           onChange={(e, val) => setEmail(val)}
           value={email}
@@ -39,7 +34,7 @@ const LoginForm = observer((): ReactElement => {
           placeholder="Пароль"
         />
         <Button onClick={handleLogin}>Логин</Button>
-      </div>
+      </LoginFormContainer>
     );
   }
 });
