@@ -1,31 +1,21 @@
-import "./App.css";
-import { Button } from "@quark-uilib/components";
-import { useNavigate } from "react-router-dom";
-import { AnimatedTextPage } from "./components/MarkupComponents/Greating";
-import { Sidebar } from "./components/MarkupComponents/Sidebar";
+import "./AppStyle.ts";
+import { ReactElement } from "react";
+import { Routes } from "./shared/Routes.tsx";
+import { AppStyled } from "./AppStyle.ts";
+import { useLocation } from "react-router-dom";
+import { HRPanel } from "./modules/HRExpert";
 
-function App() {
-  const navigate = useNavigate();
+export const App = (): ReactElement => {
+  const location = useLocation(); // Получаем текущий путь
+
+  const hideSidebarRoutes = ["/signIn", "/signUp"];
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-      <AnimatedTextPage />
-      <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-        <Button
-          onClick={() => navigate("/authForm")}
-          viewType="secondary"
-          replace={true}>
-          Sign up
-        </Button>
-        <Button
-          onClick={() => navigate("/loginForm")}
-          viewType="secondary"
-          replace={true}>
-          Login
-        </Button>
-      </div>
-    </div>
+    <AppStyled>
+      {!hideSidebarRoutes.includes(location.pathname) && <HRPanel />}
+      <Routes />
+    </AppStyled>
   );
-}
+};
 
 export default App;
